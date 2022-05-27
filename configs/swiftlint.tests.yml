@@ -1,0 +1,15 @@
+parent_config: ../.swiftlint.yml
+
+disabled_rules:
+  - implicitly_unwrapped_optional
+  - weak_delegate
+
+opt_in_rules:
+  - overridden_super_call
+
+overridden_super_call:
+  excluded:
+    - setUp()
+    - setUpWithError()
+    - tearDown()
+    - tearDownWithError()

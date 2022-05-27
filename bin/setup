@@ -1,0 +1,17 @@
+#!/usr/bin/env -S bash -euo pipefail
+
+verify-installed() {
+    if ! command -v $1 > /dev/null
+    then
+        echo "program required but not found in path: $1"
+        exit 1
+    fi
+}
+
+verify-installed npm
+verify-installed mint
+
+npm ci
+mint bootstrap
+
+npm run test

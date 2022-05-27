@@ -1,0 +1,7 @@
+#!/usr/bin/env -S bash -euo pipefail
+
+npm run eslint
+npm run eslint -- --fix
+npm run swiftlint
+npm run swiftformat
+npm run ava

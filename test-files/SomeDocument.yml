@@ -1,0 +1,8 @@
+someDocument:
+  someProperty: someValue
+  someArray:
+    - someArrayValue
+    - someArrayValue
+  someDict:
+    someDictKey: someDictValue
+    someOtherDictKey: someOtherDictValue

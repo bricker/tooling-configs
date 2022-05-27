@@ -1,0 +1,43 @@
+{
+  "name": "@bricker/tooling-configs",
+  "version": "1.0.0",
+  "description": "bricker's preferred tooling configs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bricker/tooling-configs.git"
+  },
+  "author": "Bryan Ricker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bricker/tooling-configs/issues"
+  },
+  "homepage": "https://github.com/bricker/tooling-configs#readme",
+  "type": "module",
+  "engineStrict": true,
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "bin": {
+    "link-config": "./bin/link.js"
+  },
+  "files": [
+    "configs/*",
+    "bin/link.js"
+  ],
+  "scripts": {
+    "test": "bin/test",
+    "eslint": "npx eslint .",
+    "ava": "npx ava",
+    "swiftformat": "mint run swiftformat .",
+    "swiftlint": "mint run swiftlint ."
+  },
+  "devDependencies": {
+    "ava": "^4",
+    "eslint": "^8"
+  },
+  "peerDependencies": {
+    "eslint-config-airbnb-base": "^15",
+    "eslint-plugin-import": "^2",
+    "eslint-plugin-yaml": "^0.5.0"
+  }
+}
