@@ -7,7 +7,7 @@
     "url": "git+https://github.com/bricker/tooling-configs.git"
   },
   "author": "Bryan Ricker",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/bricker/tooling-configs/issues"
   },
@@ -25,11 +25,7 @@
     "bin/link.js"
   ],
   "scripts": {
-    "test": "bin/test",
-    "eslint": "npx eslint .",
-    "ava": "npx ava",
-    "swiftformat": "mint run swiftformat .",
-    "swiftlint": "mint run swiftlint ."
+    "test": "bin/test"
   },
   "devDependencies": {
     "ava": "^4",
