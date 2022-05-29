@@ -1,0 +1,37 @@
+name: test
+on: pull_request
+
+env:
+  LINUX_SOURCEKIT_LIB_PATH: /usr/share/swift/usr/lib
+
+jobs:
+  test-js:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: npm
+
+      - run: npm ci
+      - run: npx eslint .
+      - run: npx ava
+
+  test-swift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - run: brew install mint
+
+      - id: cache-mint
+        uses: actions/cache@v3
+        with:
+          path: ~/.mint
+          key: mint
+
+      - run: mint run swiftlint .
+
+      - run: mint run swiftformat .
