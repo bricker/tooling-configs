@@ -39,6 +39,8 @@ jobs:
         if: ${{ steps.cache-mint.outputs.cache-hit != 'true' }}
         working-directory: mint
 
+      - run: echo "$HOME/.mint/bin" >> $GITHUB_PATH
+
       - run: mint run swiftlint .
         working-directory: main
 
