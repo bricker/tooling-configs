@@ -33,7 +33,5 @@ jobs:
           key: mint
 
       - run: mint run swiftlint .
-        working-directory: main
 
       - run: mint run swiftformat .
-        working-directory: main
