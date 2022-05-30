@@ -29,7 +29,7 @@ async function main(tool) {
       console.info(HELP_TEXT);
       break;
     case 'ava':
-      await link('ava.config.js', 'ava.config.js');
+      await link('ava.config.js', '.ava.config.js');
       break;
     case 'eslint':
       await link('eslintrc.cjs', '.eslintrc.cjs');

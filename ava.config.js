@@ -1,1 +1,0 @@
-configs/ava.config.js
