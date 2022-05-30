@@ -25,7 +25,8 @@
     "bin/link.js"
   ],
   "scripts": {
-    "test": "bin/test"
+    "test": "bin/test",
+    "eslint": "npx eslint ."
   },
   "devDependencies": {
     "ava": "^4",

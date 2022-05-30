@@ -39,9 +39,21 @@ module.exports = {
   },
   overrides: [
     {
+      // Force eslint to lint the following additional extensions.
+      files: ['*.cjs', '*.mjs', '*.yaml', '*.yml'],
+    },
+    {
+      // ava's `t` context variable is intended to be modified during the lifecycle of a test.
       files: ['*.test.js'],
       rules: {
         'no-param-reassign': 0,
+      },
+    },
+    {
+      // template curly syntax ${{ expr }} is used by github actions workflows
+      files: ['.github/workflows/src/**/*.js'],
+      rules: {
+        'no-template-curly-in-string': 0,
       },
     },
   ],
