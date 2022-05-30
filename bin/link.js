@@ -32,7 +32,7 @@ async function main(tool) {
       await link('ava.config.js', 'ava.config.js');
       break;
     case 'eslint':
-      await link('eslintrc.js', '.eslintrc.js');
+      await link('eslintrc.cjs', '.eslintrc.cjs');
       break;
     case 'swiftlint':
       await link('swiftlint.yml', '.swiftlint.yml');
