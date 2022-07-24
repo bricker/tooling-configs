@@ -1,1 +1,5 @@
-configs/eslintrc.cjs
+module.exports = {
+  extends: [
+    './configs/eslintrc.cjs',
+  ],
+};

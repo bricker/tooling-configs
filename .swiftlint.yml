@@ -1,1 +1,1 @@
-configs/swiftlint.yml
+parent_config: ./configs/swiftlint.yml

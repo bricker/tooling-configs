@@ -1,0 +1,2 @@
+parent_config: ./node_modules/@bricker/tooling-configs/configs/swiftlint.yml
+# Add your config overrides here
