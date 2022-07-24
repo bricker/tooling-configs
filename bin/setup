@@ -13,5 +13,4 @@ verify-installed mint
 
 npm ci
 mint bootstrap
-
-npm run test
+npm link

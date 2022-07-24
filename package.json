@@ -28,6 +28,7 @@
     "bin/install.js"
   ],
   "scripts": {
+    "setup": "bin/setup",
     "test": "bin/test",
     "eslint": "npx eslint ."
   },

@@ -23,6 +23,5 @@ jobs:
           path: ~/.mint
           key: mint
 
-      - run: npm ci
-      - run: mint bootstrap
+      - run: npm run setup
       - run: npm run test
