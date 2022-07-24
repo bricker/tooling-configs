@@ -18,11 +18,14 @@
     "node": ">=16.0.0"
   },
   "bin": {
-    "link-config": "./bin/link.js"
+    "install-config": "./bin/install.js"
   },
+  "main": "index.js",
   "files": [
     "configs/*",
-    "bin/link.js"
+    "bootstrap/*",
+    "index.js",
+    "bin/install.js"
   ],
   "scripts": {
     "test": "bin/test",

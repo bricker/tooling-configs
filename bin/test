@@ -1,6 +1,62 @@
 #!/usr/bin/env -S bash -euo pipefail
 
-npm run eslint
-npx ava
-mint run swiftformat .
-mint run swiftlint .
+function run-tooling-tests () {
+    echo -e "\n\nRunning configuration tests..."
+
+    npm run eslint
+    npx ava
+    mint run swiftformat .
+    mint run swiftlint .
+}
+
+function swap-configs () {
+    mv .eslintrc.cjs .eslintrc.cjs.swp
+    mv ava.config.js ava.config.js.swp
+    mv .swiftformat .swiftformat.swp
+    mv .swiftlint.yml .swiftlint.yml.swp
+}
+
+function restore-configs () {
+    set +x
+    echo -e "\n\nRestoring configs..."
+
+    [ -f .eslintrc.cjs.swp ] && mv .eslintrc.cjs.swp .eslintrc.cjs
+    [ -f ava.config.js.swp ] && mv ava.config.js.swp ava.config.js
+    [ -f .swiftformat.swp ] && mv .swiftformat.swp .swiftformat
+    [ -f .swiftlint.yml.swp ] && mv .swiftlint.yml.swp .swiftlint.yml
+}
+
+function run-bin-tests () {
+    echo -e "\n\nRunning install-config tests..."
+
+    swap-configs
+
+    npx install-config --root . eslint
+    npx install-config --root . ava
+    npx install-config --root . swiftlint
+    npx install-config --root . swiftformat
+
+    set -x
+    test -f .eslintrc.cjs
+    test -f ava.config.js
+    test -f .swiftformat
+    test -f .swiftlint.yml
+    set +x
+
+    npx install-config --force --root . --link eslint
+    npx install-config --force --root . --link ava
+    npx install-config --force --root . --link swiftlint
+    npx install-config --force --root . --link swiftformat
+
+    set -x
+    test -h .eslintrc.cjs
+    test -h ava.config.js
+    test -h .swiftformat
+    test -h .swiftlint.yml
+    set +x
+}
+
+trap restore-configs EXIT
+
+run-tooling-tests
+run-bin-tests
